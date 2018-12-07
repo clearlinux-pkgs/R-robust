@@ -4,20 +4,17 @@
 #
 Name     : R-robust
 Version  : 0.4.18
-Release  : 1
+Release  : 2
 URL      : https://cran.r-project.org/src/contrib/robust_0.4-18.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/robust_0.4-18.tar.gz
 Summary  : Port of the S+ "Robust Library"
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-robust-lib
-Requires: R-fit.models
-Requires: R-robustbase
-Requires: R-rrcov
+Requires: R-robust-lib = %{version}-%{release}
 BuildRequires : R-fit.models
 BuildRequires : R-robustbase
 BuildRequires : R-rrcov
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 2000s, notably for robust regression and robust multivariate analysis.
@@ -38,11 +35,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532209541
+export SOURCE_DATE_EPOCH=1544224811
 
 %install
+export SOURCE_DATE_EPOCH=1544224811
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1532209541
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
