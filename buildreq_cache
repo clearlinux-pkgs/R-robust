@@ -1,4 +1,6 @@
 0.4.18
 R-fit.models
+R-mvtnorm
+R-pcaPP
 R-robustbase
 R-rrcov

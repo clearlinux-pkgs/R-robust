@@ -4,20 +4,35 @@
 #
 Name     : R-robust
 Version  : 0.4.18
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/robust_0.4-18.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/robust_0.4-18.tar.gz
 Summary  : Port of the S+ "Robust Library"
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-robust-lib = %{version}-%{release}
+Requires: R-mvtnorm
+Requires: R-pcaPP
 BuildRequires : R-fit.models
+BuildRequires : R-mvtnorm
+BuildRequires : R-pcaPP
 BuildRequires : R-robustbase
 BuildRequires : R-rrcov
 BuildRequires : buildreq-R
 
 %description
-2000s, notably for robust regression and robust multivariate analysis.
+This package contains the Robust Library version 0.4
+Contributors:
+Jeff Wang <jwang@statsci.com>
+Ruben Zamar <ruben@stat.ubc.ca>
+Alfio Marazzi <Alfio.Marazzi@inst.hospvd.ch>
+Victor Yohai <vyohai@dm.uba.ar>
+Matias Salibian-Barrera	<matias@stat.ubc.ca>
+Ricardo Maronna <maron@mate.unlp.edu.ar>
+Eric Zivot <ezivot@u.washington.edu>
+David Rocke <dmrocke@ucdavis.edu>
+Doug Martin <doug@statsci.com>
+Kjell Konis <kjell.konis@icloud.com>
 
 %package lib
 Summary: lib components for the R-robust package.
@@ -35,10 +50,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544224811
+export SOURCE_DATE_EPOCH=1552863929
 
 %install
-export SOURCE_DATE_EPOCH=1544224811
+export SOURCE_DATE_EPOCH=1552863929
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -74,8 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library robust|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  robust || :
 
 
 %files
@@ -108,7 +122,9 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/robust/help/robust.rdx
 /usr/lib64/R/library/robust/html/00Index.html
 /usr/lib64/R/library/robust/html/R.css
-/usr/lib64/R/library/robust/libs/symbols.rds
+/usr/lib64/R/library/robust/tests/Examples/robust-Ex.Rout.save
+/usr/lib64/R/library/robust/tests/Run-tests.R
+/usr/lib64/R/library/robust/tests/weight-tst.R
 /usr/lib64/R/library/robust/tests_S/asymmetric.t
 /usr/lib64/R/library/robust/tests_S/covm.t
 /usr/lib64/R/library/robust/tests_S/discrob.t
