@@ -4,15 +4,15 @@
 #
 Name     : R-robust
 Version  : 0.4.18
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/robust_0.4-18.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/robust_0.4-18.tar.gz
 Summary  : Port of the S+ "Robust Library"
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-robust-lib = %{version}-%{release}
-Requires: R-mvtnorm
-Requires: R-pcaPP
+Requires: R-DEoptimR
+BuildRequires : R-DEoptimR
 BuildRequires : R-fit.models
 BuildRequires : R-mvtnorm
 BuildRequires : R-pcaPP
@@ -50,10 +50,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552863929
+export SOURCE_DATE_EPOCH=1552959399
 
 %install
-export SOURCE_DATE_EPOCH=1552863929
+export SOURCE_DATE_EPOCH=1552959399
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
