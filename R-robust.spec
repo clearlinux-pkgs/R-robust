@@ -4,7 +4,7 @@
 #
 Name     : R-robust
 Version  : 0.4.18.1
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/robust_0.4-18.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/robust_0.4-18.1.tar.gz
 Summary  : Port of the S+ "Robust Library"
