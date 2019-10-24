@@ -4,7 +4,7 @@
 #
 Name     : R-robust
 Version  : 0.4.18.1
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/robust_0.4-18.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/robust_0.4-18.1.tar.gz
 Summary  : Port of the S+ "Robust Library"
@@ -12,8 +12,6 @@ Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-robust-lib = %{version}-%{release}
 Requires: R-fit.models
-Requires: R-mvtnorm
-Requires: R-pcaPP
 Requires: R-robustbase
 Requires: R-rrcov
 BuildRequires : R-fit.models
@@ -22,9 +20,21 @@ BuildRequires : R-pcaPP
 BuildRequires : R-robustbase
 BuildRequires : R-rrcov
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-2000s, notably for robust regression and robust multivariate analysis.
+This package contains the Robust Library version 0.4
+Contributors:
+Jeff Wang <jwang@statsci.com>
+Ruben Zamar <ruben@stat.ubc.ca>
+Alfio Marazzi <Alfio.Marazzi@inst.hospvd.ch>
+Victor Yohai <vyohai@dm.uba.ar>
+Matias Salibian-Barrera	<matias@stat.ubc.ca>
+Ricardo Maronna <maron@mate.unlp.edu.ar>
+Eric Zivot <ezivot@u.washington.edu>
+David Rocke <dmrocke@ucdavis.edu>
+Doug Martin <doug@statsci.com>
+Kjell Konis <kjell.konis@icloud.com>
 
 %package lib
 Summary: lib components for the R-robust package.
@@ -42,10 +52,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562110001
+export SOURCE_DATE_EPOCH=1571895109
 
 %install
-export SOURCE_DATE_EPOCH=1562110001
+export SOURCE_DATE_EPOCH=1571895109
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
