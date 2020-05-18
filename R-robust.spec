@@ -4,7 +4,7 @@
 #
 Name     : R-robust
 Version  : 0.5.0.0
-Release  : 19
+Release  : 20
 URL      : https://cran.r-project.org/src/contrib/robust_0.5-0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/robust_0.5-0.0.tar.gz
 Summary  : Port of the S+ "Robust Library"
@@ -20,18 +20,7 @@ BuildRequires : R-rrcov
 BuildRequires : buildreq-R
 
 %description
-This package contains the Robust Library version 0.4
-Contributors:
-Jeff Wang <jwang@statsci.com>
-Ruben Zamar <ruben@stat.ubc.ca>
-Alfio Marazzi <Alfio.Marazzi@inst.hospvd.ch>
-Victor Yohai <vyohai@dm.uba.ar>
-Matias Salibian-Barrera	<matias@stat.ubc.ca>
-Ricardo Maronna <maron@mate.unlp.edu.ar>
-Eric Zivot <ezivot@u.washington.edu>
-David Rocke <dmrocke@ucdavis.edu>
-Doug Martin <doug@statsci.com>
-Kjell Konis <kjell.konis@icloud.com>
+2000s, notably for robust regression and robust multivariate analysis.
 
 %package lib
 Summary: lib components for the R-robust package.
@@ -43,21 +32,22 @@ lib components for the R-robust package.
 
 %prep
 %setup -q -c -n robust
+cd %{_builddir}/robust
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583772757
+export SOURCE_DATE_EPOCH=1589787293
 
 %install
-export SOURCE_DATE_EPOCH=1583772757
+export SOURCE_DATE_EPOCH=1589787293
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
